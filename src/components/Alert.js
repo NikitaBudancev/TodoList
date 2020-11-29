@@ -1,7 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {actionHideAlert} from "../redux/actions/todosAction";
-import {CSSTransition} from 'react-transition-group'
 
 const Alert = () => {
     const alertType = useSelector(state => state.todosReducer.type)
@@ -21,8 +20,6 @@ const Alert = () => {
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
-
     );
 };
 

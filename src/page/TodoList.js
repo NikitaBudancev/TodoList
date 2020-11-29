@@ -9,12 +9,10 @@ const TodoList = () => {
         <section>
             <div className='mt-3'>
                 <TodoForm/>
-
             </div>
 
             <ul className='list-group list-group-flush mt-4 '>
                 {searchTodo.map((item,index)=><TodoListItem index={index} key={index} item={item}/>)}
-
             </ul>
         </section>
 

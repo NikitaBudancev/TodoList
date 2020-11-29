@@ -1,4 +1,4 @@
-import {ADD_TODO, HANDLE_SEARCH_TEXT, HANDLE_TEXT, HIDE_ALERT, SEARCH_TODO, SHOW_ALERT} from "../actions/todosAction";
+import { ADD_TODO, HANDLE_SEARCH_TEXT, HANDLE_TEXT, HIDE_ALERT, SEARCH_TODO, SHOW_ALERT } from "../actions/todosAction";
 
 const initialState = {
     text: '',
@@ -13,18 +13,19 @@ const initialState = {
     message: '',
     // <<===========  alert  =============>>
 
-    searchText:'',
-    searchTodo:[]
+    searchText: '',
+    searchTodo: []
 }
 
 export const todosReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case HANDLE_TEXT:
-            return {...state, text: state.text = action.payload}
+            return { ...state, text: state.text = action.payload }
 
         case ADD_TODO:
-            return {...state, todos: [state.text, ...state.todos], text: state.text = ''}
+            return { ...state, todos: [state.text, ...state.todos], text: state.text = '' }
+
         case SHOW_ALERT:
             return {
                 ...state, visible: state.visible = true, message: state.message = action.payload.message,
@@ -32,15 +33,14 @@ export const todosReducer = (state = initialState, action) => {
             }
 
         case HIDE_ALERT:
-            return {...state, visible: state.visible = false}
-
-
+            return { ...state, visible: state.visible = false }
 
         case HANDLE_SEARCH_TEXT:
-            return {...state,searchText: state.searchText = action.payload}
+            return { ...state, searchText: state.searchText = action.payload }
 
-case SEARCH_TODO:
-return {...state,searchTodo: state.todos.filter((todo)=>todo.toLowerCase().includes(state.searchText.toLowerCase()))}
+        case SEARCH_TODO:
+            return { ...state, searchTodo: state.todos.filter((todo) => todo.toLowerCase().includes(state.searchText.toLowerCase())) }
+
         default:
             return state
     }

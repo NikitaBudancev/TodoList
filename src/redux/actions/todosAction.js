@@ -24,7 +24,7 @@ export const addTodo = () => {
 export const showAlert = (type, message) => {
     return {
         type: SHOW_ALERT,
-        payload: {type, message}
+        payload: { type, message }
     }
 }
 export const actionHideAlert = () => {
@@ -41,13 +41,13 @@ export const doneItem = (index) => {
     }
 }
 
-
 export const handleSearchText = (text) => {
     return {
         type: HANDLE_SEARCH_TEXT,
         payload: text
     }
 }
+
 export const searchTodo = () => {
     return {
         type: SEARCH_TODO,

@@ -1,11 +1,8 @@
 export const HANDLE_TEXT = 'HANDLE_TEXT'
 export const ADD_TODO = 'ADD_TODO'
-export const SHOW_ALERT = 'SHOW_ALERT'
-export const HIDE_ALERT = 'HIDE_ALERT'
-export const DONE_ITEM = 'DONE_ITEM'
 export const SEARCH_TODO = 'SEARCH_TODO'
 export const HANDLE_SEARCH_TEXT = 'HANDLE_SEARCH_TEXT'
-
+export const DELETE_ITEM_TODO = 'DELETE_ITEM_TODO'
 
 export const handleText = (text) => {
     return {
@@ -17,27 +14,6 @@ export const handleText = (text) => {
 export const addTodo = () => {
     return {
         type: ADD_TODO,
-    }
-}
-
-// <<===========  alert  =============>>
-export const showAlert = (type, message) => {
-    return {
-        type: SHOW_ALERT,
-        payload: { type, message }
-    }
-}
-export const actionHideAlert = () => {
-    return {
-        type: HIDE_ALERT,
-    }
-}
-// <<===========  alert  =============>>
-
-export const doneItem = (index) => {
-    return {
-        type: DONE_ITEM,
-        payload: index
     }
 }
 
@@ -53,6 +29,15 @@ export const searchTodo = () => {
         type: SEARCH_TODO,
     }
 }
+
+export const deleteItemTodo = (index) => {
+    return {
+        type: DELETE_ITEM_TODO,
+        payload: index
+    }
+}
+
+
 
 
 

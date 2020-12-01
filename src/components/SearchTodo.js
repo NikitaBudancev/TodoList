@@ -4,8 +4,8 @@ import { handleSearchText, searchTodo } from "../redux/actions/todosAction";
 
 const SearchTodo = () => {
 
-    const searchText = useSelector(state => state.todosReducer.searchText)
-    const todos = useSelector(state => state.todosReducer.todos)
+    const searchText = useSelector(({todosReducer}) => todosReducer.searchText)
+    const todos = useSelector(({todosReducer}) => todosReducer.todos)
     const dispatch = useDispatch()
 
     const handleSearch = (e) => {
@@ -18,8 +18,8 @@ const SearchTodo = () => {
     }, [searchText, todos])
 
     return (
-        <form className="form-inline">
-            <input onChange={handleSearch} className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        <form onSubmit={event => event.preventDefault()} className="form-inline">
+            <input onChange={handleSearch} className="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search" />
         </form>
     );
 };

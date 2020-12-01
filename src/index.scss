@@ -15,6 +15,14 @@ code {
     monospace;
 }
 
-.done{
-  color: lightcoral;
+.done  {
+  text-decoration: line-through;
 }
+
+.important {
+  font-weight: 700;
+  color: brown;
+}
+//.todo_form{
+//  display: flex;
+//}

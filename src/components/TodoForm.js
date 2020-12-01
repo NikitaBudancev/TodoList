@@ -1,14 +1,15 @@
 import React from 'react';
 import ButtonAddTodo from "./ButtonAddTodo";
-import { useDispatch, useSelector } from "react-redux";
-import { addTodo, handleText, showAlert } from "../redux/actions/todosAction";
+import {useDispatch, useSelector} from "react-redux";
+import {addTodo, handleText,} from "../redux/actions/todosAction";
+import {showAlert} from "../redux/actions/alertAction";
 import Alert from "./Alert";
 
-
 const TodoForm = () => {
-    const textForm = useSelector(state => state.todosReducer.text)
+
+    const textForm = useSelector(({todosReducer}) => todosReducer.text)
     const dispatch = useDispatch()
-    const alertVisible = useSelector(state => state.todosReducer.visible)
+    const alertVisible = useSelector(({alertReducer}) => alertReducer.visible)
 
     const handleAddTodo = (e) => {
         e.preventDefault()
@@ -28,17 +29,19 @@ const TodoForm = () => {
     }
 
     return (
-        <div>
-            {alertVisible ? <Alert /> : null}
-            <form onSubmit={handleAddTodo}>
-                <input
-                    onChange={inputValue}
-                    value={textForm} type="text"
-                    className="form-control col-9"
-                    placeholder="напиши заметку" />
-            </form>
-            <ButtonAddTodo />
-        </div>
+        <>
+            {alertVisible ? <Alert/> : null}
+            <div>
+                <form className='d-flex' onSubmit={handleAddTodo}>
+                    <input
+                        onChange={inputValue}
+                        value={textForm} type="text"
+                        className="form-control col-9"
+                        placeholder="напиши заметку"/>
+                    <ButtonAddTodo/>
+                </form>
+            </div>
+        </>
     );
 };
 

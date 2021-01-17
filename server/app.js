@@ -46,34 +46,34 @@ app.post('/todo', (req, res) => {
         }
     });
 });
-//
-// app.put('/todo/:id',
-//      (req,res,next)=>{
-//
-//         const id = req.params.id;
-//         const important = req.body.important
-//          console.log(req.body)
-//         connection.query(`UPDATE todo SET important=${important} WHERE id=${id}`, (error, result) => {
-//
-//
-//             res.status(200).send()
-//         });
-//         next()
-//     },
-//      (req,res,next)=>{
-//         const id = req.params.id;
-//         const done = req.body.done
-//
-//
-//         connection.query(`UPDATE todo SET done=${done} WHERE id=${id}`, (error, result) => {
-//
-//             res.status(200).send('hello')
-//
-//         });
-//         next()
-//     }
-//
-// );
+
+app.put('/todo/:id',
+     (req,res,next)=>{
+
+        const id = req.params.id;
+        const important = req.body.important
+         console.log(req.body)
+        connection.query(`UPDATE todo SET important=${important} WHERE id=${id}`, (error, result) => {
+
+
+            res.status(200).send()
+        });
+        next()
+    },
+     (req,res,next)=>{
+        const id = req.params.id;
+        const done = req.body.done
+
+
+        connection.query(`UPDATE todo SET done=${done} WHERE id=${id}`, (error, result) => {
+
+            res.status(200).send('hello')
+
+        });
+        next()
+    }
+
+);
 
 app.delete('todo/:id',(req,res)=>{
     const id = req.params.id

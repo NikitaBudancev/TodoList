@@ -1,15 +1,12 @@
 const express = require('express');
 const mysql = require('mysql');
+const methodOverride = require("method-override");
+
+
+
 
 const app = express()
 const PORT = 3080
-
-const cors = require('cors')
-
-app.use(cors())
-const bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 const connection = mysql.createConnection({
     host     : 'localhost',
@@ -21,6 +18,14 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
+app.use(methodOverride())
+const cors = require('cors')
+
+app.use(cors())
+const bodyParser = require('body-parser');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 
 app.get('/todo', (req, res) => {
     let limit = parseInt(req.query.limit) || 10;
@@ -31,28 +36,55 @@ app.get('/todo', (req, res) => {
     });
 })
 
-
 app.post('/todo', (req, res) => {
-    connection.query('INSERT INTO todo (text,done,important ) VALUES ("my name kitos",false,false)', req.body, (error, result) => {
-        if (error) throw error;
-
-        res.status(201).send(`User added with ID: ${result.insertId}`);
+    connection.query(`INSERT INTO todo (content) VALUES (?)`,[req.body.content],(error, result) => {
+        try{
+            res.status(201).send('hello')
+            console.log(1)
+        }catch (error){
+            console.log(new Error(error))
+        }
     });
 });
+//
+// app.put('/todo/:id',
+//      (req,res,next)=>{
+//
+//         const id = req.params.id;
+//         const important = req.body.important
+//          console.log(req.body)
+//         connection.query(`UPDATE todo SET important=${important} WHERE id=${id}`, (error, result) => {
+//
+//
+//             res.status(200).send()
+//         });
+//         next()
+//     },
+//      (req,res,next)=>{
+//         const id = req.params.id;
+//         const done = req.body.done
+//
+//
+//         connection.query(`UPDATE todo SET done=${done} WHERE id=${id}`, (error, result) => {
+//
+//             res.status(200).send('hello')
+//
+//         });
+//         next()
+//     }
+//
+// );
 
+app.delete('todo/:id',(req,res)=>{
+    const id = req.params.id
+    console.log(id)
+    connection.query(`DELETE FROM todo WHERE id = ?`,id,(err,result)=>{
+        if (err) throw err;
 
-app.put('/todo/:id', (request, response) => {
-    const id = request.params.id;
-    const done = request.body.done
-    console.log(done)
+        res.send(result)
+    })
+})
 
-    connection.query(`UPDATE todo SET done=${done} WHERE id =${id}`, (error, result) => {
-        console.log(id,request.body)
-        if (error) throw error;
-
-        response.send('User updated successfully.');
-    });
-});
 
 
 app.listen(PORT,err=>{

@@ -1,4 +1,5 @@
 import {
+    ACTION_DONE,
     ADD_TODO,
     DELETE_ITEM_TODO, GET_TEST,
     HANDLE_SEARCH_TEXT,
@@ -8,10 +9,10 @@ import {
 
 const initialState = {
     text: '',
-    todos: [],
     todo:[],
     searchText: '',
-    searchTodo: []
+    done: null,
+    important:false
 }
 
 export const todosReducer = (state = initialState, action) => {
@@ -20,23 +21,16 @@ export const todosReducer = (state = initialState, action) => {
         case HANDLE_TEXT:
             return {...state, text: state.text = action.payload}
 
-        case ADD_TODO:
-            return {...state, todos: [state.text, ...state.todos], text: state.text = ''}
 
         case HANDLE_SEARCH_TEXT:
             return {...state, searchText: state.searchText = action.payload}
 
-        case SEARCH_TODO:
-            return {
-                ...state,
-                searchTodo: state.todos.filter((todo) => todo.toLowerCase().includes(state.searchText.toLowerCase()))
-            }
-
-        case DELETE_ITEM_TODO:
-            return {...state, todos: state.todos.slice(0, action.payload).concat(state.todos.slice(action.payload + 1))}
-
         case GET_TEST:
             return {...state,todo: state.todo = action.payload}
+
+        case ACTION_DONE :
+            return {...state,done: state.todo.done }
+
         default:
             return state
     }

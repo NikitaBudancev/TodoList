@@ -14,8 +14,8 @@ const ButtonAddTodo = () => {
     }
 
     useEffect(()=>{
-        const fetchData = async ()=>{
-            await dispatch(getTodo())
+        const fetchData =()=>{
+           dispatch(getTodo())
         }
         fetchData()
     },[])

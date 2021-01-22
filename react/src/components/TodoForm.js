@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ButtonAddTodo from "./ButtonAddTodo";
 import {useDispatch, useSelector} from "react-redux";
-import {addTodo, handleText,} from "../redux/actions/todosAction";
+import {addTodo, getTodo, handleText,getTodoAction} from "../redux/actions/todosAction";
 import {showAlert} from "../redux/actions/alertAction";
 import Alert from "./Alert";
+
 
 const TodoForm = () => {
 
@@ -13,14 +14,14 @@ const TodoForm = () => {
 
     const handleAddTodo = (e) => {
         e.preventDefault()
-        if (textForm !== '') {
-            dispatch(showAlert('success', `Заметка: '${textForm}' успешно добавлена!`
-            ))
+        // if (textForm !== '') {
+        //     dispatch(showAlert('success', `Заметка: '${textForm}' успешно добавлена!`
+        //     ))
             dispatch(addTodo())
-        } else if (textForm === '') {
-            dispatch(showAlert('warning', 'Введите текст в поле ввода')
-            )
-        }
+        // } else if (textForm === '') {
+        //     dispatch(showAlert('warning', 'Введите текст в поле ввода')
+        //     )
+        // }
     }
 
     const inputValue = (e) => {
@@ -28,9 +29,13 @@ const TodoForm = () => {
         dispatch(handleText(value))
     }
 
+    useEffect(()=>{
+            dispatch(getTodo())
+    },[])
+
     return (
         <>
-            {alertVisible ? <Alert/> : null}
+            {alertVisible && <Alert/>}
             <div>
                 <form className='d-flex' onSubmit={handleAddTodo}>
                     <input

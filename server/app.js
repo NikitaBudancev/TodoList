@@ -47,46 +47,39 @@ app.post('/todo', (req, res) => {
     });
 });
 
-app.put('/todo/:id',
-     (req,res,next)=>{
+app.put('/todo/important/:id',
+     (req,res)=>{
 
         const id = req.params.id;
         const important = req.body.important
          console.log(req.body)
         connection.query(`UPDATE todo SET important=${important} WHERE id=${id}`, (error, result) => {
-
-
             res.status(200).send()
         });
-        next()
-    },
-     (req,res,next)=>{
+    })
+
+    app.put('/todo/done/:id',(req,res)=>{
         const id = req.params.id;
         const done = req.body.done
-
-
         connection.query(`UPDATE todo SET done=${done} WHERE id=${id}`, (error, result) => {
 
             res.status(200).send('hello')
+            res.end()
+        })
+    })
 
-        });
-        next()
-    }
-
-);
-
-app.delete('todo/:id',(req,res)=>{
+app.delete('todo/del/:id',(req,res)=>{
     const id = req.params.id
     console.log(id)
-    connection.query(`DELETE FROM todo WHERE id = ?`,id,(err,result)=>{
-        if (err) throw err;
+    connection.query(`DELETE FROM todo WHERE id=?`,id,(err,result)=>{
 
-        res.send(result)
+        res.status(200).send()
+        console.log(result)
     })
+
 })
-
-
 
 app.listen(PORT,err=>{
     err ? console.log(err) : console.log('Server started')
 })
+

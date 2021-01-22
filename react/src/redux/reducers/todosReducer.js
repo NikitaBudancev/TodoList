@@ -1,10 +1,9 @@
 import {
     ACTION_DONE,
-    ADD_TODO,
-    DELETE_ITEM_TODO, GET_TEST,
+    GET_TEST,
     HANDLE_SEARCH_TEXT,
     HANDLE_TEXT,
-    SEARCH_TODO,
+
 } from "../actions/todosAction";
 
 const initialState = {

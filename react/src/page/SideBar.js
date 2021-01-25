@@ -1,15 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import classnames from 'classnames';
 
 const SideBar = () => {
+  const show = useSelector(({ todosReducer }) => todosReducer.showSidebar);
+
   return (
-    <aside className="sidebar">
+    <aside
+      className={classnames({
+        sidebar: true,
+        sidebar__hide: show,
+      })}
+    >
       <div className="sidebar__content">
         <div className="sidebar__content-inner">
           <div className="filter">
             <ul className="filter__items">
-              <li className="filter__item">
+              <p className="filter__title">Фильтры:</p>
+              <li className="filter__item filter__active">
                 <a className="filter__item-link" href="#">
-                  Выполнено
+                  Показать все
                 </a>
               </li>
               <li className="filter__item">
@@ -34,7 +44,7 @@ const SideBar = () => {
               </li>
               <li className="filter__item">
                 <a className="filter__item-link" href="#">
-                  Показать все
+                  Выполнено
                 </a>
               </li>
             </ul>

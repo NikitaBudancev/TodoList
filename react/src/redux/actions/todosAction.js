@@ -6,6 +6,7 @@ export const SEARCH_TODO = 'SEARCH_TODO';
 export const HANDLE_SEARCH_TEXT = 'HANDLE_SEARCH_TEXT';
 export const GET_TEST = 'GET_TEST';
 export const ACTION_DONE = 'ACTION_DONE';
+export const SHOW_SIDEBAR = 'SHOW_SIDEBAR';
 
 const BACKEND_URL = `http://localhost:3080/todo`;
 
@@ -17,6 +18,7 @@ export const handleSearchText = (text) => ({
   type: HANDLE_SEARCH_TEXT,
   payload: text,
 });
+export const showSidebar = (cls) => ({ type: SHOW_SIDEBAR, payload: cls });
 
 export const getTodo = () => async (dispatch) => {
   try {

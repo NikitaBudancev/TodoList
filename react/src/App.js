@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './page/Header';
 import TodoList from './page/TodoList';
 import SideBar from './page/SideBar';
+import ScrollToTop from './page/ScrollToTop';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <div className="content__wrapper">
         <SideBar />
         <TodoList />
+        <ScrollToTop />
       </div>
     </div>
   );

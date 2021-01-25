@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const TodoList = () => {
   const todos = useSelector((state) => state.todosReducer.todo);
   return (
-    <section className="mt-3">
+    <section className="editor">
       <div>
         <TodoForm />
       </div>

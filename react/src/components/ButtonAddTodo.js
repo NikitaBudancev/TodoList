@@ -22,7 +22,7 @@ const ButtonAddTodo = () => {
       disabled={textForm === '' || !textForm.trim()}
       onClick={handleAddTodo}
       type="button"
-      className="btn btn-outline-success ml-sm-2 d-inline"
+      className="add__todo-btn"
     >
       Добавить
     </button>

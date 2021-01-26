@@ -33,13 +33,13 @@ const TodoForm = () => {
   return (
     <>
       {alertVisible && <Alert />}
-      <div>
-        <form className="d-flex" onSubmit={handleAddTodo}>
+      <div className="form">
+        <form className="todo__form" onSubmit={handleAddTodo}>
           <input
+            className="todo__form-input"
             onChange={inputValue}
             value={textForm}
             type="text"
-            className="form-control col-9"
             placeholder="напиши заметку"
           />
           <ButtonAddTodo />

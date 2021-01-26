@@ -6,6 +6,8 @@ import {
   putImportantTodo,
 } from '../redux/actions/todosAction';
 import classes from 'classnames';
+import exclamation from '../img/exclamation.svg';
+import trash from '../img/trash-alt.svg';
 
 const TodoListItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -16,22 +18,35 @@ const TodoListItem = ({ item }) => {
   const itemDelete = () => dispatch(deleteTodo(id));
 
   return (
-    <li className="list-group-item d-flex justify-content-between list__item">
-      <span
+    <li className="list__item">
+      <a
+        href="#"
         onClick={selectDone}
         className={classes({
-          done: item.done,
+          list__item_text: true,
           important: item.important,
         })}
       >
-        {item.content} {item.date}{' '}
-      </span>
-      <div>
-        <button onClick={selectImportant} className="btn btn-success mr-2">
-          !
+        {item.content} {item.date}
+      </a>
+      <div className="list__item-control">
+        <button
+          onClick={selectImportant}
+          className="btn__control-important btn__control"
+        >
+          <img
+            className="item__control-image control-image"
+            src={exclamation}
+            alt="important"
+          />
         </button>
-        <button onClick={itemDelete} className="btn btn-danger">
-          &#10008;
+
+        <button onClick={itemDelete} className="btn__control-done btn__control">
+          <img
+            className="item__control-image control-image"
+            src={trash}
+            alt="trash"
+          />
         </button>
       </div>
     </li>

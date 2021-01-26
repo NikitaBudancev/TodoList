@@ -10,7 +10,7 @@ const TodoList = () => {
       <div>
         <TodoForm />
       </div>
-      <ul className="list-group list-group-flush mt-4 ">
+      <ul className="list__items">
         {todos.map((item, index) => (
           <TodoListItem index={index} key={index} item={item} />
         ))}

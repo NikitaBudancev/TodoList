@@ -17,15 +17,16 @@ code {
   monospace;
 }
 
-//@import '../../node_modules/bootstrap/scss/bootstrap';
 @import "../../node_modules/normalize.css";
 @import "header";
 @import "sidebar";
 @import "scrollToTop";
+@import "listItem";
+@import "todoForm";
 
 .editor{
   padding: 100px;
-  margin: 0 200px 100px 250px;
+  margin: 0 200px 0 250px;
 }
 
 

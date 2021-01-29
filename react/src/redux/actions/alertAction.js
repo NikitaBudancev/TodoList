@@ -5,4 +5,5 @@ export const showAlert = (type, message) => ({
   type: SHOW_ALERT,
   payload: { type, message },
 });
+ 
 export const actionHideAlert = () => ({ type: HIDE_ALERT });

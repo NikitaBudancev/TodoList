@@ -12,12 +12,14 @@
   padding: 20px 0;
   transition: .3s;
   align-items: center;
-
+  position: relative;
 
   &:hover{
   border-bottom: 1px solid #969090;
   }
 }
+
+
 
 .list__item_text{
   overflow: hidden;

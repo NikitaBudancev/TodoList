@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import ButtonAddTodo from './ButtonAddTodo';
 import { useDispatch, useSelector } from 'react-redux';
+import ButtonAddTodo from './ButtonAddTodo';
 import { addTodo, getTodo, handleText } from '../redux/actions/todosAction';
 import Alert from './Alert';
 
@@ -22,7 +22,7 @@ const TodoForm = () => {
   };
 
   const inputValue = (e) => {
-    const value = e.target.value;
+    const {value} = e.target;
     dispatch(handleText(value));
   };
 

@@ -8,7 +8,7 @@ const ButtonAddTodo = () => {
 
   const handleAddTodo = () => {
     dispatch(postTodo(textForm));
-  };
+  }; 
 
   useEffect(() => {
     const fetchData = () => {

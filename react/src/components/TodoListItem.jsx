@@ -1,36 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  deleteTodo,
-  putDoneTodo,
-  putImportantTodo,
-} from '../redux/actions/todosAction';
+import PropTypes, { number, string } from 'prop-types'
 import classes from 'classnames';
+import { putDoneTodo, putImportantTodo } from '../redux/actions/todosAction';
 import exclamation from '../img/exclamation.svg';
 import trash from '../img/trash-alt.svg';
+import Popup from './Popup';
 
 const TodoListItem = ({ item }) => {
   const dispatch = useDispatch();
-  const { id, done, important } = item;
+  const { id, done, important, content, date } = item;
+  // const popup = useSelector(({ todosReducer }) => todosReducer.popup);
+  const [popup, setPopup] = useState(false);
+
+  const selectPopup = () => {
+    setPopup(!popup);
+  };
 
   const selectImportant = () => dispatch(putImportantTodo(id, !important));
   const selectDone = () => dispatch(putDoneTodo(id, !done));
-  const itemDelete = () => dispatch(deleteTodo(id));
+  // const itemDelete = () => dispatch(deleteTodo(id));
 
   return (
     <li className="list__item">
+      {popup && <Popup />}
       <a
-        href="#"
+        href="http://google.com"
         onClick={selectDone}
         className={classes({
           list__item_text: true,
-          important: item.important,
+          important,
         })}
       >
-        {item.content} {item.date}
+        {content} 
+        {date}
       </a>
       <div className="list__item-control">
         <button
+          type='button'
           onClick={selectImportant}
           className="btn__control-important btn__control"
         >
@@ -40,8 +47,11 @@ const TodoListItem = ({ item }) => {
             alt="important"
           />
         </button>
-
-        <button onClick={itemDelete} className="btn__control-done btn__control">
+        <button
+          type='button'
+          onClick={selectPopup}
+          className="btn__control-remove btn__control"
+        >
           <img
             className="item__control-image control-image"
             src={trash}
@@ -51,5 +61,19 @@ const TodoListItem = ({ item }) => {
       </div>
     </li>
   );
+
 };
+
 export default TodoListItem;
+
+TodoListItem.defaultProps = {
+  item:{}
+}
+
+TodoListItem.propTypes = {
+    item: PropTypes.shape({id:number,
+      content:string,
+      done:number,
+      important:number,
+      date:PropTypes.string})
+}

@@ -1,7 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import TodoListItem from '../components/TodoListItem';
 import TodoForm from '../components/TodoForm';
-import { useSelector } from 'react-redux';
 
 const TodoList = () => {
   const todos = useSelector((state) => state.todosReducer.todo);
@@ -12,7 +12,7 @@ const TodoList = () => {
       </div>
       <ul className="list__items">
         {todos.map((item, index) => (
-          <TodoListItem index={index} key={index} item={item} />
+          <TodoListItem index={index} key={item.id} item={item} />
         ))}
       </ul>
     </section>

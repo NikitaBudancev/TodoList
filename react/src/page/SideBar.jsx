@@ -18,32 +18,32 @@ const SideBar = () => {
             <ul className="filter__items">
               <p className="filter__title">Фильтры:</p>
               <li className="filter__item filter__active">
-                <a className="filter__item-link" href="#">
+                <a className="filter__item-link" href="http://google.com">
                   Показать все
                 </a>
               </li>
               <li className="filter__item">
-                <a className="filter__item-link" href="#">
+                <a className="filter__item-link" href="http://google.com">
                   Приоритет 1
                 </a>
               </li>
               <li className="filter__item">
-                <a className="filter__item-link" href="#">
+                <a className="filter__item-link" href="http://google.com">
                   Приоритет 2
                 </a>
               </li>
               <li className="filter__item">
-                <a className="filter__item-link" href="#">
+                <a className="filter__item-link" href="http://google.com">
                   Приоритет 3
                 </a>
               </li>
               <li className="filter__item">
-                <a className="filter__item-link" href="#">
+                <a className="filter__item-link" href="ggg">
                   Приоритет 4
                 </a>
               </li>
               <li className="filter__item">
-                <a className="filter__item-link" href="#">
+                <a className="filter__item-link" href="ggg">
                   Выполнено
                 </a>
               </li>

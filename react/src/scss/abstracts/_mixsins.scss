@@ -1,0 +1,11 @@
+@mixin сentering-xy() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

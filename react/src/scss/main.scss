@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@import "../../node_modules/normalize.css";
+@import
+  "abstracts/variables",
+  "abstracts/mixsins";
+@import
+  "base/base",
+  "base/typography";
+@import
+  "layout/header",
+  "layout/todo-form",
+  "layout/sidebar",
+  "layout/scsroll-to-top";
+@import
+  "components/list-item",
+  "components/buttons",
+  "components/popup";
+
+.editor {
+  margin: 0 200px 0 250px;
+  padding: 100px;
+}

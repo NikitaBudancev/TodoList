@@ -1,0 +1,33 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
+  background: $brand-color;
+}
+
+.left__control {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.search__input {
+  @include size(180px, 25px);
+
+  outline: none;
+  border: 1px solid $mid-grey;
+  border-radius: 4px;
+  padding: 0 3px;
+  font-size: 12px;
+  opacity: 0.6;
+  transition: 0.3s;
+
+  &:focus-visible {
+    opacity: 1;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

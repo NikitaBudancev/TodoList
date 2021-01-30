@@ -1,0 +1,45 @@
+.list__items {
+  margin-top: 100px;
+  padding: 0;
+}
+
+.list__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 20px;
+  border-bottom: 1px solid #e5dede;
+  padding: 20px 0;
+  transition: 0.3s;
+
+  &:hover {
+    border-bottom: 1px solid #969090;
+  }
+}
+
+.list__item_text {
+  overflow: hidden;
+  max-width: 600px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #000;
+}
+
+.btn__control {
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+  background: inherit;
+  cursor: pointer;
+}
+
+.btn__control-important {
+  margin-right: 10px;
+}
+
+.control-image {
+  width: 20px;
+  height: 20px;
+}

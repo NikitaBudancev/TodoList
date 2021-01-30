@@ -19,11 +19,11 @@ const Header = () => {
         <div className="header__content">
           <div className="header__content-inner">
             <div className="left__control">
-              <button type='button' onClick={toggleBar} className="navbar__btn">
-                <img className="navbar__btn-image" src={menu} alt="menu" />
+              <button type='button' onClick={toggleBar} className="btn">
+                <img className="btn-image" src={menu} alt="menu" />
               </button>
-              <a className="home__btn" href="ddd">
-                <img className="home__btn-image" src={home} alt="home" />
+              <a className="btn" href="ddd">
+                <img className="btn-image" src={home} alt="home" />
               </a>
               <SearchTodo />
             </div>

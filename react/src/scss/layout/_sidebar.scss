@@ -1,0 +1,46 @@
+.sidebar {
+  position: fixed;
+  top: 70px;
+  z-index: 1;
+  border-right: 1px solid #e9dfdf;
+  width: 250px;
+  height: 100vh;
+  background: #fcfafa;
+  transition: ease-in-out 0.3s;
+}
+
+.sidebar__hide {
+  top: 100vh;
+}
+
+.filter__items {
+  margin: 50px 10px 50px 30px;
+  padding: 0;
+}
+
+.filter__title {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.filter__item {
+  list-style: none;
+  margin-top: 5px;
+  border-radius: 3px;
+  padding: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+}
+
+.filter__active {
+  background-color: #f1f1f1;
+}
+
+.filter__item-link {
+  text-decoration: none;
+  color: #000;
+}

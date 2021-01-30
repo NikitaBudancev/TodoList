@@ -1,0 +1,24 @@
+.scroll__top {
+  position: fixed;
+  right: 0;
+  top: 70px;
+  border-left: 1px solid #969090;
+  width: 200px;
+  height: 100vh;
+  background: #fcfafa;
+  opacity: 0.3;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.scroll__top-image {
+  position: absolute;
+  left: 50%;
+  bottom: 100px;
+  width: 30px;
+  height: 30px;
+}

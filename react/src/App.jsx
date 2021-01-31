@@ -4,7 +4,7 @@ import TodoList from './page/TodoList';
 import SideBar from './page/SideBar';
 import ScrollToTop from './page/ScrollToTop';
 
-const App = () => (
+const App = () =>(
   <div className="todolist__app">
     <Header />
     <div className="content__wrapper">
@@ -13,6 +13,6 @@ const App = () => (
       <ScrollToTop />
     </div>
   </div>
-  );
+)
 
 export default App;

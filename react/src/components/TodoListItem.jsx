@@ -10,26 +10,22 @@ import Popup from './Popup';
 const TodoListItem = ({ item }) => {
   const dispatch = useDispatch();
   const { id, done, important, content, date } = item;
-  // const popup = useSelector(({ todosReducer }) => todosReducer.popup);
   const [popup, setPopup] = useState(false);
 
-  const selectPopup = () => {
-    setPopup(!popup);
-  };
-
+  const selectPopup = () => setPopup(true);
   const selectImportant = () => dispatch(putImportantTodo(id, !important));
   const selectDone = () => dispatch(putDoneTodo(id, !done));
-  // const itemDelete = () => dispatch(deleteTodo(id));
-
+  
   return (
     <li className="list__item">
-      {popup && <Popup />}
+      {popup && <Popup popup={setPopup} id={id} />}
       <a
-        href="http://google.com"
+        href="/#"
         onClick={selectDone}
         className={classes({
           list__item_text: true,
           important,
+          done,
         })}
       >
         {content} 

@@ -1,25 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ButtonAddTodo from './ButtonAddTodo';
-import { addTodo, getTodo, handleText } from '../redux/actions/todosAction';
+import { postTodo, getTodo, handleText } from '../redux/actions/todosAction';
 import Alert from './Alert';
 
-const TodoForm = () => {
+  const TodoForm = () => {
   const textForm = useSelector(({ todosReducer }) => todosReducer.text);
   const dispatch = useDispatch();
   const alertVisible = useSelector(({ alertReducer }) => alertReducer.visible);
 
   const handleAddTodo = (e) => {
-    e.preventDefault();
-    // if (!textForm) {
-    //     dispatch(showAlert('success', `Заметка: '${textForm}' успешно добавлена!`
-    //     ))
-    dispatch(addTodo());
-    // } else if (!textForm) {
-    //     dispatch(showAlert('warning', 'Введите текст в поле ввода')
-    //     )
-    // }
-  };
+      e.preventDefault()
+      dispatch(postTodo(textForm));
+  }; 
 
   const inputValue = (e) => {
     const {value} = e.target;
@@ -27,7 +20,7 @@ const TodoForm = () => {
   };
 
   useEffect(() => {
-    dispatch(getTodo());
+  dispatch(getTodo());
   }, []);
 
   return (

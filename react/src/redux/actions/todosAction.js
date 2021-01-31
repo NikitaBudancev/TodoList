@@ -19,6 +19,7 @@ export const handleSearchText = (text) => ({
   type: HANDLE_SEARCH_TEXT,
   payload: text,
 });
+
 export const showSidebar = (cls) => ({ type: SHOW_SIDEBAR, payload: cls });
 
 export const getTodo = () => async (dispatch) => {
@@ -30,31 +31,36 @@ export const getTodo = () => async (dispatch) => {
     console.log(err.message);
   }
 };
-export const postTodo = (content) => async () => {
+
+export const postTodo = (content) => async (dispatch) => {
   const fetchData = await axios.post(BACKEND_URL, { content });
+    dispatch(getTodo())
+    dispatch(handleText(''))
     console.log(fetchData)
 };
 
-export const putDoneTodo = (id, done) => async () => {
+export const putDoneTodo = (id, done) => async (dispatch) => {
   const fetchData = await axios.put(
     `${BACKEND_URL}/done/${id}`,
-    { done },
-    { method: 'put' }
+    { done }
   );
-  console.log(fetchData);
+    dispatch(getTodo())
+    console.log(fetchData)
 };
-export const putImportantTodo = (id, important) => async () => {
+
+export const putImportantTodo = (id, important) => async (dispatch) => {
+
   const fetchData = await axios.put(
     `${BACKEND_URL}/important/${id}`,
-    { important },
-    { method: 'put' }
+    { important }
   );
+    dispatch(getTodo())
   console.log(fetchData);
 };
-// export const deleteTodo = (id) => async (dispatch) => {
-//   const fetchData = await axios.delete(`${BACKEND_URL}/del/${id}`, {
-//     method: 'delete',
-//   });
-//   console.log(fetchData);
-//  };
 
+export const deleteTodo = (id) => (dispatch) => {
+ axios.delete(`${BACKEND_URL}/del/${id}`);
+  dispatch(getTodo())
+ };
+
+ 

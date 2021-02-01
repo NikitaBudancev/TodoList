@@ -34,6 +34,20 @@ app.get("/todo", (req, res) => {
   );
 });
 
+
+app.get("/filter/:id", (req, res) => {
+  const id = req.params.id
+  let limit = parseInt(req.query.limit) || 10;
+  let offset = parseInt(req.query.page) * limit - limit || 0;
+  connection.query(
+    `SELECT * FROM todo WHERE priority = ${id} LIMIT ${limit} OFFSET ${offset}`,
+    function (error, results) {
+      if (error) throw error;
+      res.send(results);
+    }
+  );
+});
+
 app.post("/todo", (req, res) => {
   connection.query(
     `INSERT INTO todo (content) VALUES (?)`,
@@ -54,7 +68,7 @@ app.put("/todo/important/:id", (req, res) => {
   const important = req.body.important;
   console.log(req.body);
   connection.query(
-    `UPDATE todo SET important=${important} WHERE id=${id}`,
+    `UPDATE todo SET priority=${important} WHERE id=${id}`,
     (error, result) => {
       res.status(200).send();
     }

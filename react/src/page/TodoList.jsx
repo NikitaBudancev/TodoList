@@ -17,6 +17,6 @@ const TodoList = () => {
       </ul>
     </section>
   );
-};
+}
 
 export default TodoList;

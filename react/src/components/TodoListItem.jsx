@@ -9,11 +9,11 @@ import Popup from './Popup';
 
 const TodoListItem = ({ item }) => {
   const dispatch = useDispatch();
-  const { id, done, important, content, date } = item;
+  const { id, done, content, date } = item;
   const [popup, setPopup] = useState(false);
 
   const selectPopup = () => setPopup(true);
-  const selectImportant = () => dispatch(putImportantTodo(id, !important));
+  const selectImportant = () => dispatch(putImportantTodo(id, 3));
   const selectDone = () => dispatch(putDoneTodo(id, !done));
   
   return (
@@ -24,7 +24,6 @@ const TodoListItem = ({ item }) => {
         onClick={selectDone}
         className={classes({
           list__item_text: true,
-          important,
           done,
         })}
       >
@@ -58,7 +57,7 @@ const TodoListItem = ({ item }) => {
     </li>
   );
 
-};
+}
 
 export default TodoListItem;
 
@@ -67,9 +66,10 @@ TodoListItem.defaultProps = {
 }
 
 TodoListItem.propTypes = {
-    item: PropTypes.shape({id:number,
-      content:string,
-      done:number,
-      important:number,
-      date:PropTypes.string})
+      item: PropTypes.shape({
+      id:number.isRequired,
+      content:string.isRequired,
+      done:number.isRequired,
+      date:PropTypes.string.isRequired
+    })
 }

@@ -1,9 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import classnames from 'classnames';
+import Filter from '../components/Filter';
 
 const SideBar = () => {
   const show = useSelector(({ todosReducer }) => todosReducer.showSidebar);
+  const filters = useSelector(({filterReducer}) => filterReducer.filters)
+  
 
   return (
     <aside
@@ -17,36 +20,7 @@ const SideBar = () => {
           <div className="filter">
             <ul className="filter__items">
               <p className="filter__title">Фильтры:</p>
-              <li className="filter__item filter__active">
-                <a className="filter__item-link" href="http://google.com">
-                  Показать все
-                </a>
-              </li>
-              <li className="filter__item">
-                <a className="filter__item-link" href="http://google.com">
-                  Приоритет 1
-                </a>
-              </li>
-              <li className="filter__item">
-                <a className="filter__item-link" href="http://google.com">
-                  Приоритет 2
-                </a>
-              </li>
-              <li className="filter__item">
-                <a className="filter__item-link" href="http://google.com">
-                  Приоритет 3
-                </a>
-              </li>
-              <li className="filter__item">
-                <a className="filter__item-link" href="ggg">
-                  Приоритет 4
-                </a>
-              </li>
-              <li className="filter__item">
-                <a className="filter__item-link" href="ggg">
-                  Выполнено
-                </a>
-              </li>
+              { filters.map((item) => <Filter key={item.id} items={item} /> )}
             </ul>
           </div>
         </div>

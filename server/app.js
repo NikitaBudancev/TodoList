@@ -34,9 +34,8 @@ app.get("/todo", (req, res) => {
   );
 });
 
-
 app.get("/filter/:id", (req, res) => {
-  const id = req.params.id
+  const id = req.params.id;
   let limit = parseInt(req.query.limit) || 10;
   let offset = parseInt(req.query.page) * limit - limit || 0;
   connection.query(
@@ -78,7 +77,7 @@ app.put("/todo/important/:id", (req, res) => {
 app.put("/todo/done/:id", (req, res) => {
   const id = req.params.id;
   const done = req.body.done;
-  console.log(id)
+  console.log(id);
   connection.query(
     `UPDATE todo SET done=${done} WHERE id=${id}`,
     (error, result) => {
@@ -89,11 +88,11 @@ app.put("/todo/done/:id", (req, res) => {
 
 app.delete("/todo/del/:id", (req, res) => {
   const id = req.params.id;
- 
-  connection.query(`DELETE FROM todo WHERE id=${id}`, (error, result) => {
-      if (error) throw error;
 
-      res.send('User deleted.');
+  connection.query(`DELETE FROM todo WHERE id=${id}`, (error, result) => {
+    if (error) throw error;
+
+    res.send("User deleted.");
   });
 });
 

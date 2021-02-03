@@ -13,8 +13,8 @@ const alertReducer = (state = initialState, action) => {
         ...state,
         visible: true,
         message: action.payload.message,
-        type: action.payload.type
-      }
+        type: action.payload.type,
+      };
     case HIDE_ALERT:
       return { ...state, visible: false };
     default:
@@ -22,4 +22,4 @@ const alertReducer = (state = initialState, action) => {
   }
 };
 
-export default alertReducer
+export default alertReducer;

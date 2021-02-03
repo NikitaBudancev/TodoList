@@ -14,19 +14,18 @@ const initialState = {
   important: false,
   showSidebar: false,
 };
- 
- const todosReducer  = (state = initialState, action) => {
- switch (action.type) {
-     
+
+const todosReducer = (state = initialState, action) => {
+  switch (action.type) {
     case HANDLE_TEXT:
-        return {...state, text: action.payload }
-    
-     case HANDLE_SEARCH_TEXT:
-        return { ...state, searchText:action.payload };
+      return { ...state, text: action.payload };
+
+    case HANDLE_SEARCH_TEXT:
+      return { ...state, searchText: action.payload };
 
     case GET_TEST:
-        return { ...state, todo: action.payload }
- 
+      return { ...state, todo: action.payload };
+
     case ACTION_DONE:
       return { ...state, done: state.todo.done };
 
@@ -38,4 +37,4 @@ const initialState = {
   }
 };
 
-export default todosReducer
+export default todosReducer;

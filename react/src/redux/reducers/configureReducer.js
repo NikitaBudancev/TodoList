@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import todosReducer  from './todosReducer';
-import  alertReducer  from './alertReducer';
-import filterReducer from './filterReducer'
+import todosReducer from './todosReducer';
+import alertReducer from './alertReducer';
+import filterReducer from './filterReducer';
 
 const rootReducer = combineReducers({
   todosReducer,
@@ -9,4 +9,4 @@ const rootReducer = combineReducers({
   filterReducer,
 });
 
-export default rootReducer
+export default rootReducer;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes, { number, string } from 'prop-types'
+import PropTypes, { number, string } from 'prop-types';
 import classes from 'classnames';
 import { putDoneTodo, putImportantTodo } from '../redux/actions/todosAction';
 import exclamation from '../img/exclamation.svg';
@@ -13,9 +13,9 @@ const TodoListItem = ({ item }) => {
   const [popup, setPopup] = useState(false);
 
   const selectPopup = () => setPopup(true);
-  const selectImportant = () => dispatch(putImportantTodo(id, 3));
+  const selectImportant = () => dispatch(putImportantTodo(id, 2));
   const selectDone = () => dispatch(putDoneTodo(id, !done));
-  
+
   return (
     <li className="list__item">
       {popup && <Popup popup={setPopup} id={id} />}
@@ -27,12 +27,12 @@ const TodoListItem = ({ item }) => {
           done,
         })}
       >
-        {content} 
+        {content}
         {date}
       </a>
       <div className="list__item-control">
         <button
-          type='button'
+          type="button"
           onClick={selectImportant}
           className="btn__control-important btn__control"
         >
@@ -43,7 +43,7 @@ const TodoListItem = ({ item }) => {
           />
         </button>
         <button
-          type='button'
+          type="button"
           onClick={selectPopup}
           className="btn__control-remove btn__control"
         >
@@ -56,20 +56,19 @@ const TodoListItem = ({ item }) => {
       </div>
     </li>
   );
-
-}
+};
 
 export default TodoListItem;
 
 TodoListItem.defaultProps = {
-  item:{}
-}
+  item: {},
+};
 
 TodoListItem.propTypes = {
-      item: PropTypes.shape({
-      id:number.isRequired,
-      content:string.isRequired,
-      done:number.isRequired,
-      date:PropTypes.string.isRequired
-    })
-}
+  item: PropTypes.shape({
+    id: number.isRequired,
+    content: string.isRequired,
+    done: number.isRequired,
+    date: PropTypes.string.isRequired,
+  }),
+};

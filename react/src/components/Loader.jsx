@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Loader = () => (
   <div className="gooey">
@@ -9,6 +9,6 @@ const Loader = () => (
       <span />
     </div>
   </div>
-)
+);
 
-export default Loader
+export default Loader;

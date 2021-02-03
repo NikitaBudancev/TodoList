@@ -4,23 +4,23 @@ import ButtonAddTodo from './ButtonAddTodo';
 import { postTodo, getTodo, handleText } from '../redux/actions/todosAction';
 import Alert from './Alert';
 
-  const TodoForm = () => {
+const TodoForm = () => {
   const textForm = useSelector(({ todosReducer }) => todosReducer.text);
   const dispatch = useDispatch();
   const alertVisible = useSelector(({ alertReducer }) => alertReducer.visible);
 
   const handleAddTodo = (e) => {
-      e.preventDefault()
-      dispatch(postTodo(textForm));
-  }; 
+    e.preventDefault();
+    dispatch(postTodo(textForm));
+  };
 
   const inputValue = (e) => {
-    const {value} = e.target;
+    const { value } = e.target;
     dispatch(handleText(value));
   };
 
   useEffect(() => {
-  dispatch(getTodo());
+    dispatch(getTodo());
   }, []);
 
   return (

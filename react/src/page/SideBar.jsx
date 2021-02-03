@@ -5,8 +5,7 @@ import Filter from '../components/Filter';
 
 const SideBar = () => {
   const show = useSelector(({ todosReducer }) => todosReducer.showSidebar);
-  const filters = useSelector(({filterReducer}) => filterReducer.filters)
-  
+  const filters = useSelector(({ filterReducer }) => filterReducer.filters);
 
   return (
     <aside
@@ -20,7 +19,9 @@ const SideBar = () => {
           <div className="filter">
             <ul className="filter__items">
               <p className="filter__title">Фильтры:</p>
-              { filters.map((item) => <Filter key={item.id} items={item} /> )}
+              {filters.map((item) => (
+                <Filter key={item.id} items={item} />
+              ))}
             </ul>
           </div>
         </div>

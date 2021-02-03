@@ -9,25 +9,24 @@ const Alert = () => {
 
   const hideAlert = () => {
     dispatch(actionHideAlert());
-  }; 
- 
-     return (
-       <div
-         className={`alert alert-${alertType} alert-dismissible fade show role="alert`}
-       >
-         <span>{alertMessage}</span>
-         <button
-           onClick={hideAlert}
-           type="button"
-           className="close"
-           data-dismiss="alert"
-           aria-label="Close"
-         >
-       
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-  ); 
+  };
+
+  return (
+    <div
+      className={`alert alert-${alertType} alert-dismissible fade show role="alert`}
+    >
+      <span>{alertMessage}</span>
+      <button
+        onClick={hideAlert}
+        type="button"
+        className="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  );
 };
 
 export default Alert;

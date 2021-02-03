@@ -6,7 +6,7 @@ import home from '../img/home.svg';
 import { showSidebar } from '../redux/actions/todosAction';
 
 const Header = () => {
-  const show = useSelector(({ todosReducer }) => todosReducer.showSidebar);
+  const show = useSelector(({ todosReducer }: any) => todosReducer.showSidebar);
   const dispatch = useDispatch();
 
   const toggleBar = () => {
@@ -19,10 +19,10 @@ const Header = () => {
         <div className="header__content">
           <div className="header__content-inner">
             <div className="left__control">
-              <button type='button' onClick={toggleBar} className="btn">
+              <button type="button" onClick={toggleBar} className="btn">
                 <img className="btn-image" src={menu} alt="menu" />
               </button>
-              <a className="btn" href="ddd">
+              <a className="btn" href="#/">
                 <img className="btn-image" src={home} alt="home" />
               </a>
               <SearchTodo />

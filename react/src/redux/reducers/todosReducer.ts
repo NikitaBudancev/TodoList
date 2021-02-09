@@ -1,21 +1,36 @@
 import {
-  ACTION_DONE,
   GET_TEST,
   HANDLE_SEARCH_TEXT,
   HANDLE_TEXT,
   SHOW_SIDEBAR,
-} from '../actions/todosAction';
+} from '../actions/actions';
 
-const initialState = {
+type TodosType = {
+  id: number;
+  done: boolean;
+  important: number;
+  content: string;
+  date: string;
+};
+
+type InitialStateType = {
+  text: string;
+  todos: Array<TodosType>;
+  searchText: string;
+  showSidebar: boolean;
+};
+
+const initialState: InitialStateType = {
   text: '',
-  todo: [],
+  todos: [],
   searchText: '',
-  done: null,
-  important: false,
   showSidebar: false,
 };
 
-const todosReducer = (state = initialState, action) => {
+const todosReducer = (
+  state: InitialStateType = initialState,
+  action: any,
+): InitialStateType => {
   switch (action.type) {
     case HANDLE_TEXT:
       return { ...state, text: action.payload };
@@ -24,10 +39,7 @@ const todosReducer = (state = initialState, action) => {
       return { ...state, searchText: action.payload };
 
     case GET_TEST:
-      return { ...state, todo: action.payload };
-
-    case ACTION_DONE:
-      return { ...state, done: state.todo.done };
+      return { ...state, todos: action.payload };
 
     case SHOW_SIDEBAR:
       return { ...state, showSidebar: action.payload };

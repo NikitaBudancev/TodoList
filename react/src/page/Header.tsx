@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SearchTodo from '../components/SearchTodo';
 import menu from '../img/menu.svg';
 import home from '../img/home.svg';
-import { showSidebar } from '../redux/actions/todosAction';
+import { showSidebar } from '../redux/actions/todosActionCreator';
 
 const Header = () => {
   const show = useSelector(({ todosReducer }: any) => todosReducer.showSidebar);

@@ -1,11 +1,25 @@
-import React from 'react';
+import * as React from 'react';
 import { useSelector } from 'react-redux';
 import classnames from 'classnames';
 import Filter from '../components/Filter';
 
-const SideBar = () => {
-  const show = useSelector(({ todosReducer }) => todosReducer.showSidebar);
-  const filters = useSelector(({ filterReducer }) => filterReducer.filters);
+const SideBar: React.FC = () => {
+  type FilterType = {
+    id: number;
+    name: string;
+    isActive: boolean;
+  };
+
+  type ShowSidebarType = {
+    showSidebar: boolean;
+  };
+
+  const show: ShowSidebarType = useSelector(
+    ({ todosReducer }: any) => todosReducer.showSidebar,
+  );
+  const filters: Array<FilterType> = useSelector(
+    ({ filterReducer }: any) => filterReducer.filters,
+  );
 
   return (
     <aside

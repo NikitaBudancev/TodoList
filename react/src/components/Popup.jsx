@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { deleteTodo } from '../redux/actions/todosAction';
+import { DELETE_TODO } from '../redux/actions/actions';
 
 const Popup = ({ popup, id }) => {
   const dispatch = useDispatch();
 
   const removeItem = () => {
-    dispatch(deleteTodo(id));
+    dispatch({ type: DELETE_TODO, payload: id });
     popup(false);
   };
 

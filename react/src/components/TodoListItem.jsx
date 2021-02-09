@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes, { number, string } from 'prop-types';
 import classes from 'classnames';
-import { putDoneTodo, putImportantTodo } from '../redux/actions/todosAction';
+// import { putDoneTodo, putImportantTodo } from '../redux/actions/todosAction';
 import exclamation from '../img/exclamation.svg';
 import trash from '../img/trash-alt.svg';
 import Popup from './Popup';
+import { ACTION_DONE } from '../redux/actions/actions';
 
 const TodoListItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -13,8 +14,9 @@ const TodoListItem = ({ item }) => {
   const [popup, setPopup] = useState(false);
 
   const selectPopup = () => setPopup(true);
-  const selectImportant = () => dispatch(putImportantTodo(id, 2));
-  const selectDone = () => dispatch(putDoneTodo(id, !done));
+  const selectImportant = () => console.log('hello important');
+  const selectDone = () =>
+    dispatch({ type: ACTION_DONE, payload: { id, done: !done } });
 
   return (
     <li className="list__item">

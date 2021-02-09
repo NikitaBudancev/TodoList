@@ -1,0 +1,9 @@
+export const HANDLE_TEXT = 'HANDLE_TEXT';
+export const ADD_TODO = 'ADD_TODO';
+export const HANDLE_SEARCH_TEXT = 'HANDLE_SEARCH_TEXT';
+export const GET_TEST = 'GET_TEST';
+export const ACTION_DONE = 'ACTION_DONE';
+export const SHOW_SIDEBAR = 'SHOW_SIDEBAR';
+export const TODO_WATCHER = 'TODO_WATCHER';
+export const DELETE_TODO = 'DELETE_TODO';
+export const POST_TODO = 'POST_TODO';

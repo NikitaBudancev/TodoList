@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ButtonAddTodo from './ButtonAddTodo';
-import { postTodo, getTodo, handleText } from '../redux/actions/todosAction';
+import { handleText } from '../redux/actions/todosActionCreator';
 import Alert from './Alert';
+import { POST_TODO, TODO_WATCHER } from '../redux/actions/actions';
 
 const TodoForm = () => {
   const textForm = useSelector(({ todosReducer }) => todosReducer.text);
@@ -11,7 +12,7 @@ const TodoForm = () => {
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    dispatch(postTodo(textForm));
+    dispatch({ type: POST_TODO, payload: textForm });
   };
 
   const inputValue = (e) => {
@@ -20,7 +21,7 @@ const TodoForm = () => {
   };
 
   useEffect(() => {
-    dispatch(getTodo());
+    dispatch({ type: TODO_WATCHER });
   }, []);
 
   return (

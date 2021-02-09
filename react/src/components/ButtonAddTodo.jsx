@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { postTodo } from '../redux/actions/todosAction';
+import { POST_TODO } from '../redux/actions/actions';
 
 const ButtonAddTodo = () => {
   const dispatch = useDispatch();
   const textForm = useSelector(({ todosReducer }) => todosReducer.text);
 
   const handleAddTodo = () => {
-    dispatch(postTodo(textForm));
+    dispatch({ type: POST_TODO, payload: textForm });
   };
 
   return (

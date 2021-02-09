@@ -4,10 +4,16 @@ import classnames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { filterTodo } from '../redux/actions/filterAction';
 
+// type FilterPropsType = {
+//   id: number,
+//   name: string,
+//   isActive: boolean,
+// };
+
 const Filter = ({ items }) => {
   const { id, name, isActive } = items;
   const dispatch = useDispatch();
-
+  console.log(items);
   const selectActive = () => {
     dispatch(filterTodo(id));
   };

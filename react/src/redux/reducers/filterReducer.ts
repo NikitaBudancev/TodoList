@@ -1,6 +1,17 @@
 import { SELECT_FILTER } from '../actions/filterAction';
 
-const initialState = {
+type FiltersType = {
+  id: number;
+  name: string;
+  isActive: boolean;
+};
+
+type InitialStateType = {
+  filters: Array<FiltersType>;
+  active: number;
+};
+
+const initialState: InitialStateType = {
   filters: [
     { id: 0, name: 'Показать все', isActive: true },
     { id: 1, name: 'Приоритет 1', isActive: false },
@@ -11,7 +22,7 @@ const initialState = {
   active: 0,
 };
 
-const filterReducer = (state = initialState, action) => {
+const filterReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case SELECT_FILTER:
       return { ...state };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { handleSearchText } from '../redux/actions/todosAction';
+import { handleSearchText } from '../redux/actions/todosActionCreator';
 
 const SearchTodo = () => {
   const dispatch = useDispatch();

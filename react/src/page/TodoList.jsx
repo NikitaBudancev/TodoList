@@ -4,7 +4,7 @@ import TodoListItem from '../components/TodoListItem';
 import TodoForm from '../components/TodoForm';
 
 const TodoList = () => {
-  const todos = useSelector((state) => state.todosReducer.todo);
+  const todos = useSelector((state) => state.todosReducer.todos);
   return (
     <section className="editor">
       <div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes, { number, string } from 'prop-types';
 import classes from 'classnames';
-// import { putDoneTodo, putImportantTodo } from '../redux/actions/todosAction';
 import exclamation from '../img/exclamation.svg';
 import trash from '../img/trash-alt.svg';
 import Popup from './Popup';

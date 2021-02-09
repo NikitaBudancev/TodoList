@@ -14,12 +14,3 @@ export const handleSearchText = (text) => ({
   type: HANDLE_SEARCH_TEXT,
   payload: text,
 });
-
-// export const putImportantTodo = (id, important) => async (dispatch) => {
-//   const fetchData = await axios.put(`${BACKEND_URL}/important/${id}`, {
-//     important,
-//   });
-//   dispatch(getTodo());
-//   console.log(fetchData);
-// };
-//
